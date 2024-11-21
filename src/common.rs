@@ -517,8 +517,13 @@ async fn test_nat_type_() -> ResultType<bool> {
     let mut port1 = 0;
     let mut port2 = 0;
     let mut local_addr = None;
-    Config::set_option("custom-rendezvous-server".to_string(), "vpn.xbmax.com".to_string());
-    Config::set_option("relay-server".to_string(), "vpn.xbmax.com".to_string());
+    if Config::get_option("custom-rendezvous-server").is_empty(){
+ Config::set_option("custom-rendezvous-server".to_string(), "vpn.aabb.com".to_string());
+}
+
+if Config::get_option("relay-server").is_empty(){
+    Config::set_option("relay-server".to_string(), "vpn.aabb.com".to_string());
+	}
     for i in 0..2 {
         let server = if i == 0 { &*server1 } else { &*server2 };
         let mut socket =
