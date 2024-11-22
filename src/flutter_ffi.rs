@@ -1403,7 +1403,7 @@ pub fn main_get_last_remote_id() -> String {
 }
 
 pub fn main_get_software_update_url() {
-    if get_local_option("enable-check-update".to_string()) != "N" {
+    if get_local_option("enable-check-update".to_string()) != "Y" {
         crate::common::check_software_update();
     }
 }
